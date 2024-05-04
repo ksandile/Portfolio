@@ -56,7 +56,7 @@ body.menu-open .navbar {
 .navbar a {
     font-size: 1.8rem;
     color: #fff;
-    margin-left: 14rem;
+    margin-left: 10rem;
     font-weight: 500;
     transition: 0.3s ease-in-out;
     border-bottom: 3px solid transparent;
