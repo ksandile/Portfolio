@@ -108,11 +108,11 @@ section {
     margin-bottom: 2rem;
     color: #ddd;
     margin-top: 5rem;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
 }
 
 .home-content h1 {
-    font-size: 5rem;
+    font-size: 4rem;
     font-weight: 700;
     color: white;
     margin-top: 1rem;
@@ -120,7 +120,7 @@ section {
 }
 .home-content p {
     color: #dbd1d1;
-    font-size: 3rem;
+    font-size: 2rem;
 }
 .home-img {
     margin-left: 59rem;
@@ -146,7 +146,7 @@ section {
     justify-content: center;
     align-items: center;
     width: 4.5rem;
-    height: 5.5rem;
+    height: 4.5rem;
     background: transparent;
     border: 0.2rem solid #2196f3;
     font-size: 2.5rem;
@@ -320,7 +320,7 @@ section {
     margin: 0 auto;
 }
 .service p {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #dbd1d1;
 }
 .service h3 {
@@ -330,8 +330,9 @@ section {
     font-size: 3rem;
     color: #2196f3;
 }
-.my-services h2 {
+.my-services h2 strong {
     font-size: 4rem;
+    color: #2196f3;
 }
 .section__title--services strong {
     color: #dbd1d1;
@@ -387,7 +388,7 @@ section {
     box-shadow: 5px 5px 10px, rgba(0, 0, 0, 0.9);
 }
 .about-me__image img {
-    height: 550px;
+    height: 500px;
     width: 700px;
     border: 4px;
     box-shadow: 0 0 25px #2196f3;
@@ -516,6 +517,7 @@ section {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
+    margin-top: -2rem;
 }
 
 .footer__section {
@@ -587,7 +589,7 @@ section {
     justify-content: center;
     align-items: center;
     width: 9.5rem;
-    height: 9.5rem;
+    height: 9rem;
     background: transparent;
     border: 0.2rem solid #2196f3;
     font-size: 2.5rem;
