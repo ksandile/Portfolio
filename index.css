@@ -115,7 +115,7 @@ section {
     font-size: 4rem;
     font-weight: 700;
     color: white;
-    margin-top: 1rem;
+    margin-top: 23rem;
     line-height: 1;
 }
 .home-content p {
@@ -127,9 +127,9 @@ section {
 }
 .home-img img {
     border-radius: 50%;
-    position: relative;
-    margin-left: -2.5rem;
-    top: 0rem;
+    position: absolute;
+    left: calc(50% - 12.5vh);
+    top: 15rem;
     width: 25vh;
     height: 25vh;
     box-shadow: 0 0 25px #2196f3;
@@ -189,7 +189,7 @@ section {
 .btn2 {
     display: inline-block;
     padding: 1rem 2.8rem;
-    background-color: #21f359;
+    background-color: #47ac62;
     border-radius: 4rem;
     font-size: 1.6rem;
     color: #fff;
@@ -365,7 +365,7 @@ section {
     margin-top: 30px;
 }
 .about-me__body p {
-    margin-top: 20px;
+    margin-top: 0px;
     color: #dbd1d1;
     font-size: 2rem;
 }
@@ -391,7 +391,7 @@ section {
 }
 .about-me__image img {
     height: 500px;
-    width: 700px;
+    width: 500px;
     border: 4px;
     box-shadow: 0 0 25px #2196f3;
     border-radius: 15px;
@@ -556,7 +556,7 @@ section {
 }
 .footer__section form textarea {
     width: 100%;
-    height: 14rem;
+    height: 12rem;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 10px;
