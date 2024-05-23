@@ -237,6 +237,60 @@ section {
     animation: cursor 0.6s infinite, typing 20s steps(14) infinite;
 }
 
+.MySkills {
+    position: fixed;
+    top: 65rem;
+    left: 110rem;
+}
+.MySkills h1 {
+    position: fixed;
+    top: 58rem;
+    left: 127rem;
+    color: #2196f3;
+    font-size: 3rem;
+    text-decoration: underline;
+}
+.skillsImgContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.skillsImg img {
+    border-radius: 50%;
+    box-shadow: 0 0 25px #2196f3;
+    margin: 10px;
+    width: 5rem; /* Adjust the width as needed */
+    height: 5rem;
+}
+
+.skillsImg img:nth-child(3n+1) {
+    clear: left;
+}
+
+.softSkills-Container {
+    position: fixed;
+}
+.softSkills-Container h1 {
+    position: fixed;
+    top: 58rem;
+    right: 127rem;
+    color: #2196f3;
+    font-size: 3rem;
+    text-decoration: underline;
+}
+.softSkillsP1 p {
+    position: fixed;
+    top: 65rem;
+    color: #dbd1d1;
+    font-size: 2rem;
+}
+.softSkillsP2 p {
+    position: fixed;
+    top: 69rem;
+    color: #dbd1d1;
+    font-size: 2rem;
+}
+
 @keyframes cursor {
     to {
         border-left: 2px solid #2196f3;
