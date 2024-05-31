@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Select relevant DOM elements
     let sections = document.querySelectorAll("section");
     let footer = document.getElementById("footer");
     let homeImg = document.querySelector(".home-img img"); // Target the image within home-img
@@ -9,12 +10,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuIcon = document.getElementById("menu-icon");
     const navbar = document.querySelector(".navbar");
 
-    // Toggle mobile menu on menu icon click
+    /**
+     * Toggle mobile menu visibility on menu icon click.
+     * Also toggles visibility of specific elements when the menu is open.
+     */
     menuIcon.addEventListener("click", function() {
         navbar.classList.toggle("active");
         document.body.classList.toggle("menu-open"); // Add or remove class on body
         
-        // Toggle visibility of home-img
+        // Toggle visibility of home-img, textAnimation, and socialIcons
         if (homeImg) {
             homeImg.classList.toggle("hidden");
         }
@@ -26,17 +30,19 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Close mobile menu when a menu item is clicked
+    /**
+     * Close the mobile menu when a menu item is clicked.
+     * Ensures specific elements are shown when the menu is closed.
+     */
     navbar.querySelectorAll("a").forEach(function(item) {
         item.addEventListener("click", function() {
             navbar.classList.remove("active");
             document.body.classList.remove("menu-open"); // Remove class on body
             
-            // Ensure home-img is hidden when a menu item is clicked
+            // Ensure home-img, textAnimation, and socialIcons are visible
             if (homeImg && homeImg.classList.contains("hidden")) {
                 homeImg.classList.remove("hidden");
             }
-
             if (textAnimation && textAnimation.classList.contains("hidden")) {
                 textAnimation.classList.remove("hidden");
             }
@@ -46,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // My Services
+    /**
+     * Show the My Services section and hide other sections and footer.
+     */
     document.getElementById("myServices").addEventListener("click", function(event) {
         event.preventDefault(); // Prevent default link behavior
         hideAllSections();
@@ -54,7 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
         footer.style.display = "none"; // Hide the footer
     });
 
-    // About Me
+    /**
+     * Show the About Me section and hide other sections and footer.
+     */
     document.getElementById("aboutMe").addEventListener("click", function(event) {
         event.preventDefault();
         hideAllSections();
@@ -62,23 +72,30 @@ document.addEventListener('DOMContentLoaded', function() {
         footer.style.display = "none"; // Hide the footer
     });
 
-    // My Projects
+    /**
+     * Show the My Projects section, hide other sections and footer, and scroll smoothly to projects.
+     */
     document.getElementById("myProjects").addEventListener("click", function(event) {
         event.preventDefault();
         hideAllSections();
-        document.getElementById("projectsSection").style.display = "block"; // Show the my projects section
-        document.getElementById("projectsSection").scrollIntoView({ behavior: "smooth" }); // Smooth scroll to projects
+        const projectsSection = document.getElementById("projectsSection");
+        projectsSection.style.display = "block"; // Show the my projects section
+        projectsSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to projects
         footer.style.display = "none"; // Hide the footer
     });
 
-    // Contact Me
+    /**
+     * Show the Contact Me section (footer) and hide other sections.
+     */
     document.getElementById("contactMe").addEventListener("click", function(event) {
         event.preventDefault();
         hideAllSections();
         footer.style.display = "block"; // Show the footer
     });
 
-    // Function to hide all sections
+    /**
+     * Function to hide all sections.
+     */
     function hideAllSections() {
         sections.forEach(function(section) {
             section.style.display = "none"; // Hide all sections
@@ -88,7 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Back Home button
     const backHomeButton = document.querySelectorAll(".Home-btn button");
 
-    // Add event listener to each "Home" button
+    /**
+     * Add event listener to each "Home" button to reload the page.
+     */
     backHomeButton.forEach(function(button) {
         button.addEventListener("click", function() {
             // Reload the page
