@@ -41,7 +41,7 @@ header {
     
 }
 body.menu-open .navbar {
-    background: black; /* Change background color to black */
+    background: black;
     z-index: 10000;
 }
 
@@ -261,7 +261,7 @@ section {
     border-radius: 50%;
     box-shadow: 0 0 25px #2196f3;
     margin: 10px;
-    width: 5rem; /* Adjust the width as needed */
+    width: 5rem;
     height: 5rem;
 }
 
@@ -430,7 +430,7 @@ section {
     position: absolute;
     margin-top: 10rem;
     width: 100%;
-    height: 650px;
+    height: auto;
     overflow: hidden;
 }
 
@@ -991,7 +991,7 @@ section {
     }
     section {
         padding: 10rem 3% 2rem;
-        min-height: 100vh;
+        min-height: 500vh;
     }
 }
 
@@ -1014,6 +1014,7 @@ section {
         top: 0;
         right: 0;
         width: 100%;
+        height: 900rem;
         padding: 1rem 2rem;
         background: rgba(0, 0, 0, 0.6);
         backdrop-filter: blur(10px);

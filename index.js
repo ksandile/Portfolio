@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Select relevant DOM elements
     let sections = document.querySelectorAll("section");
     let footer = document.getElementById("footer");
-    let homeImg = document.querySelector(".home-img img"); // Target the image within home-img
+    let homeImg = document.querySelector(".home-img img");
     let textAnimation = document.querySelector(".text-animation");
     let socialIcons = document.querySelector(".social-icons");
 
@@ -83,6 +83,23 @@ document.addEventListener('DOMContentLoaded', function() {
         projectsSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to projects
         footer.style.display = "none"; // Hide the footer
     });
+
+    // Show the Home section when the Home link is clicked
+    document.getElementById("home").addEventListener("click", function(event) {
+        event.preventDefault();
+        hideAllSections();
+        document.querySelector(".Home").style.display = "block"; // Show the home section
+        footer.style.display = "none"; // Optionally hide the footer if needed
+    });
+
+    // "Hire Me" button logic
+    document.getElementById("hireMeBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        hideAllSections();
+        footer.style.display = "block"; // Show the footer (contact section)
+        footer.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to footer
+    });
+
 
     /**
      * Show the Contact Me section (footer) and hide other sections.
