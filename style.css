@@ -71,6 +71,49 @@ body.menu-open .navbar {
     border-bottom: 3px solid #2196f3;
 }
 
+.navbar {
+    display: flex;
+    align-items: center;
+}
+
+/* Dropdown container */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    cursor: pointer;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: transparent;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    min-width: 40px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: rgb(241, 234, 234);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Show the dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+    background-color: #f1f1f1;
+}
+
 #menu-icon {
     font-size: 3.6rem;
     color: #2196f3;
@@ -383,7 +426,7 @@ section {
 @keyframes words {
     0%,
     20% {
-        content: "Software Developer";
+        content: "Software Engineer";
     }
     21%,
     40% {
