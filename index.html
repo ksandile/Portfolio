@@ -16,10 +16,12 @@
             <a href="#aboutMe" id="aboutMe">About Me</a>
             <a href="#myServices" id="myServices">My Services</a>
             <a href="#myProjects" id="myProjects">Projects</a>
+            
+            <!-- Dropdown menu for Tech Skills -->
             <div class="dropdown">
                 <a href="#techSkills" id="techSkills" class="dropbtn">Tech Skills</a>
                 <div class="dropdown-content">
-                    <a href="#">HTML</a>
+                    <a href="#" id="show-html">HTML</a>
                     <a href="#">CSS</a>
                     <a href="#">JavaScript</a>
                     <a href="#">React.Js</a>
@@ -27,9 +29,11 @@
                     <a href="#">Python</a>
                     <a href="#">Java</a>
                 </div>
+            </div>
+    
             <a href="#contactMe" id="contactMe">Contact</a>
         </nav>
-    </header>
+    </header>    
     <section class="Home" id="home">
         <div class="home">
             <div class="home-img">
@@ -195,48 +199,69 @@
         </div>
     </section>
 
+    <!-- Tech skills HTML -->
+    <section class="HTML" id="html">
+        <div class="HTML-container">
+            <div class="html-header">
+                <p>HTML</p>
+            </div>
+            <button class="close-htmlbtn" id="closeHtml">✖️</button>
+            <div class="html-content">
+                <p>
+                    Throughout my journey learning HTML, I've gained an understanding of the structure of web pages, how to properly use tags such as 
+                    <code>&lt;div&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;footer&gt;</code>, and more. I also learned how to create tables, forms, 
+                    and include multimedia elements like images and videos.
+                </p>
+                <p>
+                    Here's a project I built using HTML, showcasing my skills: 
+                    <a href="https://github.com/your-github-username/your-project" target="_blank">View my HTML project</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
-<footer class="footer" id="footer">
-    <div class="text2">
-        <h2>Excited to Work Together? Reach Out!</h2>
-    </div>
-    <div class="footer__container">
-        <div class="footer__section">
-            <div class="location">
-                <div class="footer-icon">
-                    <i class="fa-solid fa-location-dot"></i>
-                </div>
-                <h3>Physical Address</h3>
-            </div> 
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.8679576873888!2d18.849989575133264!3d-34.1241299729255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdcaff64d8ed9f%3A0xc9f7d05817efa0e7!2s34%2016th%20St%2C%20Rusthof%2C%20Cape%20Town%2C%207140!5e0!3m2!1sen!2sza!4v1714640507387!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <footer class="footer" id="footer">
+        <div class="text2">
+            <h2>Excited to Work Together? Reach Out!</h2>
         </div>
-        <div class="footer__section">
-            <div class="contact2">
-                <div class="footer-icon">
-                    <i class="fa-solid fa-phone-volume"></i>
-                </div>
-                <h3>Get In Touch</h3>
+        <div class="footer__container">
+            <div class="footer__section">
+                <div class="location">
+                    <div class="footer-icon">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <h3>Physical Address</h3>
+                </div> 
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3302.8679576873888!2d18.849989575133264!3d-34.1241299729255!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1dcdcaff64d8ed9f%3A0xc9f7d05817efa0e7!2s34%2016th%20St%2C%20Rusthof%2C%20Cape%20Town%2C%207140!5e0!3m2!1sen!2sza!4v1714640507387!5m2!1sen!2sza" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-            <p>Phone1: 073 552 2380</p>
-            <p>Phone2: 065 235 9052</p>
-            <p><a href="#footer">Email: ksandile127@gmail.com</a></p>
-        </div>
-        <div class="footer__section">
-            <div class="contact2">
-                <div class="footer-icon">
-                    <i class="fa-solid fa-envelope"></i>
+            <div class="footer__section">
+                <div class="contact2">
+                    <div class="footer-icon">
+                        <i class="fa-solid fa-phone-volume"></i>
+                    </div>
+                    <h3>Get In Touch</h3>
                 </div>
-                <h3>Send An Email</h3>
+                <p>Phone1: 073 552 2380</p>
+                <p>Phone2: 065 235 9052</p>
+                <p><a href="#footer">Email: ksandile127@gmail.com</a></p>
             </div>
-            <form action="https://formspree.io/f/xpzvnylz" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
+            <div class="footer__section">
+                <div class="contact2">
+                    <div class="footer-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <h3>Send An Email</h3>
+                </div>
+                <form action="https://formspree.io/f/xpzvnylz" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
         </div>
-    </div>
-</footer>
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
