@@ -79,12 +79,12 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(function(section) {
             section.style.display = "none";
         });
-        downloadCVBtn.style.display = "none"; // Hide the Download CV button when leaving Home
+        downloadCVBtn.style.display = "none"; 
     }
 
     hideAllSections();
     document.querySelector(".Home").style.display = "block";
-    downloadCVBtn.style.display = "inline-block"; // Ensure CV button is visible on page load for Home
+    downloadCVBtn.style.display = "inline-block";
 
     const backHomeButton = document.querySelectorAll(".Home-btn button");
 
@@ -124,3 +124,137 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // No longer automatically showing the HTML section based on localStorage
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // JavaScript Section Elements
+    let javascriptSection = document.getElementById('javascript');
+
+    // Function to show the JavaScript section
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('javascriptSectionVisible', 'true');
+    }
+
+    // Function to hide the JavaScript section
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('javascriptSectionVisible', 'false');
+    }
+
+    // Show the JavaScript section when "JavaScript" link is clicked
+    document.getElementById('show-javascript').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default action
+        showJavaScriptSection();
+    });
+
+    // Close the JavaScript section when the close button is clicked
+    document.getElementById('closejs').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    // Check localStorage to set visibility on load
+    if (localStorage.getItem('javascriptSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // JavaScript Section Elements
+    let javascriptSection = document.getElementById('css');
+
+    // Function to show the JavaScript section
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('cssSectionVisible', 'true');
+    }
+
+    // Function to hide the JavaScript section
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('cssSectionVisible', 'false');
+    }
+
+    // Show the JavaScript section when "JavaScript" link is clicked
+    document.getElementById('show-css').addEventListener('click', function (e) {
+        e.preventDefault(); // Prevent default action
+        showJavaScriptSection();
+    });
+
+    // Close the JavaScript section when the close button is clicked
+    document.getElementById('closecss').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    // Check localStorage to set visibility on load
+    if (localStorage.getItem('cssSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // JavaScript Section Elements
+    let javascriptSection = document.getElementById('react');
+
+    // Function to show the JavaScript section
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('reactSectionVisible', 'true');
+    }
+
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('reactSectionVisible', 'false');
+    }
+
+    
+    document.getElementById('show-react').addEventListener('click', function (e) {
+        e.preventDefault();
+        showJavaScriptSection();
+    });
+
+    
+    document.getElementById('closereact').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    
+    if (localStorage.getItem('reactSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // JavaScript Section Elements
+    let javascriptSection = document.getElementById('node');
+
+    // Function to show the JavaScript section
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('nodeSectionVisible', 'true');
+    }
+
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('nodeSectionVisible', 'false');
+    }
+
+    
+    document.getElementById('show-node').addEventListener('click', function (e) {
+        e.preventDefault();
+        showJavaScriptSection();
+    });
+
+    
+    document.getElementById('closenode').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    
+    if (localStorage.getItem('nodeSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+
+
+
