@@ -224,10 +224,9 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // JavaScript Section Elements
+
     let javascriptSection = document.getElementById('node');
 
-    // Function to show the JavaScript section
     function showJavaScriptSection() {
         javascriptSection.style.display = 'flex';
         localStorage.setItem('nodeSectionVisible', 'true');
@@ -238,22 +237,117 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('nodeSectionVisible', 'false');
     }
 
-    
     document.getElementById('show-node').addEventListener('click', function (e) {
         e.preventDefault();
         showJavaScriptSection();
     });
 
-    
     document.getElementById('closenode').addEventListener('click', function () {
         hideJavaScriptSection();
     });
 
-    
     if (localStorage.getItem('nodeSectionVisible') === 'true') {
         showJavaScriptSection();
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    let javascriptSection = document.getElementById('python');
+
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('pythonSectionVisible', 'true');
+    }
+
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('pythonSectionVisible', 'false');
+    }
+
+    document.getElementById('show-python').addEventListener('click', function (e) {
+        e.preventDefault();
+        showJavaScriptSection();
+    });
+
+    document.getElementById('closepython').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    
+    if (localStorage.getItem('pythonSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    let javascriptSection = document.getElementById('java');
+
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('javaSectionVisible', 'true');
+    }
+
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('javaSectionVisible', 'false');
+    }
+
+    document.getElementById('show-java').addEventListener('click', function (e) {
+        e.preventDefault();
+        showJavaScriptSection();
+    });
+
+    document.getElementById('closejava').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    
+    if (localStorage.getItem('javaSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    let javascriptSection = document.getElementById('sql');
+
+    function showJavaScriptSection() {
+        javascriptSection.style.display = 'flex';
+        localStorage.setItem('sqlSectionVisible', 'true');
+    }
+
+    function hideJavaScriptSection() {
+        javascriptSection.style.display = 'none';
+        localStorage.setItem('sqlSectionVisible', 'false');
+    }
+
+    document.getElementById('show-sql').addEventListener('click', function (e) {
+        e.preventDefault();
+        showJavaScriptSection();
+    });
+
+    document.getElementById('closesql').addEventListener('click', function () {
+        hideJavaScriptSection();
+    });
+
+    
+    if (localStorage.getItem('sqlSectionVisible') === 'true') {
+        showJavaScriptSection();
+    }
+});
+
+
+const navLinks = document.querySelectorAll('.navbar a');
+
+function setActiveLink() {
+    navLinks.forEach(link => link.classList.remove('active'));
+    this.classList.add('active');
+}
+
+navLinks.forEach(link => link.addEventListener('click', setActiveLink));
 
 
 
