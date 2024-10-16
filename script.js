@@ -45,10 +45,19 @@ document.addEventListener('DOMContentLoaded', function() {
         footer.style.display = "none";
     });
 
-    document.getElementById("myProjects").addEventListener("click", function(event) {
+    document.getElementById("softwareDevProjectsBtn").addEventListener("click", function(event) {
         event.preventDefault();
         hideAllSections();
-        const projectsSection = document.getElementById("projectsSection");
+        const projectsSection = document.getElementById("softwareDevProjectsSection");
+        projectsSection.style.display = "block";
+        projectsSection.scrollIntoView({ behavior: "smooth" });
+        footer.style.display = "none";
+    });
+
+    document.getElementById("dataAnalystProjectsBtn").addEventListener("click", function(event) {
+        event.preventDefault();
+        hideAllSections();
+        const projectsSection = document.getElementById("dataAnalystProjectsSection");
         projectsSection.style.display = "block";
         projectsSection.scrollIntoView({ behavior: "smooth" });
         footer.style.display = "none";

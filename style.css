@@ -430,11 +430,11 @@ section {
     }
     21%,
     40% {
-        content: "UI / UX Designer";
+        content: "Data Analyst";
     }
     41%,
     60% {
-        content: "Graphic Designer";
+        content: "Data Science";
     }
 }
 
@@ -673,7 +673,7 @@ section {
     overflow-y: auto;
 }
 
-#projectsSection.show {
+#softwareDevProjectsSection.show {
     display: block;
 }
 .myProjectHead {
