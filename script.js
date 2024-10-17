@@ -14,16 +14,18 @@ document.addEventListener('DOMContentLoaded', function() {
     menuIcon.addEventListener("click", function() {
         navbar.classList.toggle("active");
         document.body.classList.toggle("menu-open");
-        
+
         if (homeImg) homeImg.classList.toggle("hidden");
         if (textAnimation) textAnimation.classList.toggle("hidden");
         if (socialIcons) socialIcons.classList.toggle("hidden");
     });
 
     navbar.querySelectorAll("a").forEach(function(item) {
-        item.addEventListener("click", function() {
-            navbar.classList.remove("active");
-            document.body.classList.remove("menu-open");
+        item.addEventListener("click", function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                navbar.classList.remove("active");
+                document.body.classList.remove("menu-open");
+            }
             
             if (homeImg && homeImg.classList.contains("hidden")) homeImg.classList.remove("hidden");
             if (textAnimation && textAnimation.classList.contains("hidden")) textAnimation.classList.remove("hidden");
@@ -67,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault();
         hideAllSections();
         document.querySelector(".Home").style.display = "block";
-        downloadCVBtn.style.display = "inline-block"; // Show the Download CV button when Home is visible
+        downloadCVBtn.style.display = "inline-block";
         footer.style.display = "none";
     });
 
@@ -88,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function() {
         sections.forEach(function(section) {
             section.style.display = "none";
         });
-        downloadCVBtn.style.display = "none"; 
+        downloadCVBtn.style.display = "none";
     }
 
     hideAllSections();
@@ -104,251 +106,63 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
+// HTML section display functionality
 document.addEventListener('DOMContentLoaded', function() {
     let htmlSection = document.getElementById('html');
 
-    // Function to show the HTML section
     function showHtmlSection() {
         htmlSection.style.display = 'flex';
         localStorage.setItem('htmlSectionVisible', 'true');
     }
 
-    // Function to hide the HTML section
     function hideHtmlSection() {
         htmlSection.style.display = 'none';
         localStorage.setItem('htmlSectionVisible', 'false');
     }
 
-    // Show the HTML section when "HTML" link is clicked
     document.getElementById('show-html').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default action
+        e.preventDefault();
         showHtmlSection();
     });
 
-    // Close the HTML section when the close button is clicked
     document.getElementById('closeHtml').addEventListener('click', function () {
         hideHtmlSection();
     });
-
-    // No longer automatically showing the HTML section based on localStorage
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // JavaScript Section Elements
-    let javascriptSection = document.getElementById('javascript');
+// Display for various tech skills
+document.addEventListener('DOMContentLoaded', function () {
+    const techSkills = ['html', 'javascript', 'css', 'react', 'node', 'python', 'java', 'sql'];
 
-    // Function to show the JavaScript section
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('javascriptSectionVisible', 'true');
-    }
+    techSkills.forEach(skill => {
+        const section = document.getElementById(skill);
 
-    // Function to hide the JavaScript section
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('javascriptSectionVisible', 'false');
-    }
+        function showSection() {
+            section.style.display = 'flex';
+            localStorage.setItem(`${skill}SectionVisible`, 'true');
+        }
 
-    // Show the JavaScript section when "JavaScript" link is clicked
-    document.getElementById('show-javascript').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default action
-        showJavaScriptSection();
+        function hideSection() {
+            section.style.display = 'none';
+            localStorage.setItem(`${skill}SectionVisible`, 'false');
+        }
+
+        document.getElementById(`show-${skill}`).addEventListener('click', function (e) {
+            e.preventDefault();
+            showSection();
+        });
+
+        document.getElementById(`close${skill}`).addEventListener('click', function () {
+            hideSection();
+        });
+
+        if (localStorage.getItem(`${skill}SectionVisible`) === 'true') {
+            showSection();
+        }
     });
-
-    // Close the JavaScript section when the close button is clicked
-    document.getElementById('closejs').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    // Check localStorage to set visibility on load
-    if (localStorage.getItem('javascriptSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
 });
 
-document.addEventListener('DOMContentLoaded', function() {
-    // JavaScript Section Elements
-    let javascriptSection = document.getElementById('css');
-
-    // Function to show the JavaScript section
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('cssSectionVisible', 'true');
-    }
-
-    // Function to hide the JavaScript section
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('cssSectionVisible', 'false');
-    }
-
-    // Show the JavaScript section when "JavaScript" link is clicked
-    document.getElementById('show-css').addEventListener('click', function (e) {
-        e.preventDefault(); // Prevent default action
-        showJavaScriptSection();
-    });
-
-    // Close the JavaScript section when the close button is clicked
-    document.getElementById('closecss').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    // Check localStorage to set visibility on load
-    if (localStorage.getItem('cssSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // JavaScript Section Elements
-    let javascriptSection = document.getElementById('react');
-
-    // Function to show the JavaScript section
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('reactSectionVisible', 'true');
-    }
-
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('reactSectionVisible', 'false');
-    }
-
-    
-    document.getElementById('show-react').addEventListener('click', function (e) {
-        e.preventDefault();
-        showJavaScriptSection();
-    });
-
-    
-    document.getElementById('closereact').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    
-    if (localStorage.getItem('reactSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    let javascriptSection = document.getElementById('node');
-
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('nodeSectionVisible', 'true');
-    }
-
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('nodeSectionVisible', 'false');
-    }
-
-    document.getElementById('show-node').addEventListener('click', function (e) {
-        e.preventDefault();
-        showJavaScriptSection();
-    });
-
-    document.getElementById('closenode').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    if (localStorage.getItem('nodeSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    let javascriptSection = document.getElementById('python');
-
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('pythonSectionVisible', 'true');
-    }
-
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('pythonSectionVisible', 'false');
-    }
-
-    document.getElementById('show-python').addEventListener('click', function (e) {
-        e.preventDefault();
-        showJavaScriptSection();
-    });
-
-    document.getElementById('closepython').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    
-    if (localStorage.getItem('pythonSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    let javascriptSection = document.getElementById('java');
-
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('javaSectionVisible', 'true');
-    }
-
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('javaSectionVisible', 'false');
-    }
-
-    document.getElementById('show-java').addEventListener('click', function (e) {
-        e.preventDefault();
-        showJavaScriptSection();
-    });
-
-    document.getElementById('closejava').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    
-    if (localStorage.getItem('javaSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    let javascriptSection = document.getElementById('sql');
-
-    function showJavaScriptSection() {
-        javascriptSection.style.display = 'flex';
-        localStorage.setItem('sqlSectionVisible', 'true');
-    }
-
-    function hideJavaScriptSection() {
-        javascriptSection.style.display = 'none';
-        localStorage.setItem('sqlSectionVisible', 'false');
-    }
-
-    document.getElementById('show-sql').addEventListener('click', function (e) {
-        e.preventDefault();
-        showJavaScriptSection();
-    });
-
-    document.getElementById('closesql').addEventListener('click', function () {
-        hideJavaScriptSection();
-    });
-
-    
-    if (localStorage.getItem('sqlSectionVisible') === 'true') {
-        showJavaScriptSection();
-    }
-});
-
-
+// Active link functionality for navbar
 const navLinks = document.querySelectorAll('.navbar a');
 
 function setActiveLink() {
@@ -358,6 +172,45 @@ function setActiveLink() {
 
 navLinks.forEach(link => link.addEventListener('click', setActiveLink));
 
+// Select dropdown buttons
+const projectsDropdown = document.getElementById('myProjects');
+const techSkillsDropdown = document.getElementById('techSkills');
 
+// Function to toggle the dropdown visibility
+function toggleDropdown(event) {
+    event.preventDefault(); // Prevent default anchor behavior to stop navigation
+    event.stopPropagation(); // Prevent other event handlers from executing
 
+    const dropdownContent = event.target.nextElementSibling;
+
+    // Close other dropdowns if open
+    document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+        if (dropdown !== dropdownContent) {
+            dropdown.classList.remove('show');
+        }
+    });
+
+    // Toggle the clicked dropdown's visibility
+    dropdownContent.classList.toggle('show');
+}
+
+// Add click event listeners to dropdown buttons
+projectsDropdown.addEventListener('click', function (event) {
+    toggleDropdown(event); // Call the toggle function
+    event.stopPropagation(); // Prevent the navbar from closing
+});
+
+techSkillsDropdown.addEventListener('click', function (event) {
+    toggleDropdown(event); // Call the toggle function
+    event.stopPropagation(); // Prevent the navbar from closing
+});
+
+// Close the dropdown if the user clicks outside of it
+window.addEventListener('click', function(event) {
+    if (!event.target.matches('.dropbtn')) {
+        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+            dropdown.classList.remove('show');
+        });
+    }
+});
 
