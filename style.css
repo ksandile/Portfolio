@@ -1150,7 +1150,7 @@ section {
 /* Tech Skills */
 /* Container for the React section */
 #python, #java, #javascript, #node, #html, #css, #react, #sql {
-    display: none;  /* Remove duplicate display: none */
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
