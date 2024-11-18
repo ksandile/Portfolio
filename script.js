@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Select relevant DOM elements
-    let sections = document.querySelectorAll("section");
-    let footer = document.getElementById("footer");
-    let homeImg = document.querySelector(".home-img img");
-    let textAnimation = document.querySelector(".text-animation");
-    let socialIcons = document.querySelector(".social-icons");
-    let downloadCVBtn = document.querySelector(".btn2"); // Select the Download CV button
+    const sections = document.querySelectorAll("section");
+    const footer = document.getElementById("footer");
+    const homeImg = document.querySelector(".home-img img");
+    const textAnimation = document.querySelector(".text-animation");
+    const socialIcons = document.querySelector(".social-icons");
+    const downloadCVBtn = document.querySelector(".btn2"); // Select the Download CV button
 
     // Mobile Menu
     const menuIcon = document.getElementById("menu-icon");
@@ -33,12 +33,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Navigation between sections
     function navigateToSection(sectionId) {
-        hideAllSections();
-        document.getElementById(sectionId).style.display = "block";
-        footer.style.display = "none";
-        sessionStorage.setItem('currentSection', sectionId); // Save current section in sessionStorage
+        hideAllSections(); // Hide all sections first
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.style.display = "block"; // Show the selected section
+        }
+        if (footer) footer.style.display = "none"; // Hide footer unless specified
+        sessionStorage.setItem('currentSection', sectionId); // Save state
     }
+    
 
     document.getElementById("myServices").addEventListener("click", function(event) {
         event.preventDefault();
@@ -50,56 +55,61 @@ document.addEventListener('DOMContentLoaded', function() {
         navigateToSection("about");
     });
 
+    document.getElementById("home").addEventListener("click", function(event) {
+        event.preventDefault();
+        navigateToSection("home");
+    });
+
     document.getElementById("softwareDevProjectsBtn").addEventListener("click", function(event) {
         event.preventDefault();
         navigateToSection("softwareDevProjectsSection");
         const projectsSection = document.getElementById("softwareDevProjectsSection");
-        projectsSection.scrollIntoView({ behavior: "smooth" });
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: "smooth" });
+        }
     });
 
     document.getElementById("dataAnalystProjectsBtn").addEventListener("click", function(event) {
         event.preventDefault();
         navigateToSection("dataAnalystProjectsSection");
         const projectsSection = document.getElementById("dataAnalystProjectsSection");
-        projectsSection.scrollIntoView({ behavior: "smooth" });
-    });
-
-    document.getElementById("home").addEventListener("click", function(event) {
-        event.preventDefault();
-        navigateToSection("Home");
-        downloadCVBtn.style.display = "inline-block";
+        if (projectsSection) {
+            projectsSection.scrollIntoView({ behavior: "smooth" });
+        }
     });
 
     document.getElementById("hireMeBtn").addEventListener("click", function(event) {
         event.preventDefault();
         hideAllSections();
-        footer.style.display = "block";
-        footer.scrollIntoView({ behavior: "smooth" });
+        if (footer) footer.style.display = "block";
+        if (footer) footer.scrollIntoView({ behavior: "smooth" });
     });
 
     document.getElementById("contactMe").addEventListener("click", function(event) {
         event.preventDefault();
         hideAllSections();
-        footer.style.display = "block";
+        if (footer) footer.style.display = "block";
     });
 
     function hideAllSections() {
         sections.forEach(function(section) {
-            section.style.display = "none";
+            section.style.display = "none"; // Hide each section
         });
-        downloadCVBtn.style.display = "none";
+        if (downloadCVBtn) downloadCVBtn.style.display = "none"; // Hide CV button
     }
+    
 
     // Restore the previous section on page load
     const currentSection = sessionStorage.getItem('currentSection');
     if (currentSection) {
-        hideAllSections(); // Hide all sections first
-        document.getElementById(currentSection).style.display = "block"; // Show the current section
-    } else {
-        // Default to showing the home section if no section is stored
         hideAllSections();
-        document.querySelector(".Home").style.display = "block";
-        downloadCVBtn.style.display = "inline-block";
+        let current = document.getElementById(currentSection);
+        if (current) current.style.display = "block";
+    } else {
+        hideAllSections();
+        let homeSection = document.querySelector(".Home");
+        if (homeSection) homeSection.style.display = "block";
+        if (downloadCVBtn) downloadCVBtn.style.display = "inline-block";
     }
 
     const backHomeButton = document.querySelectorAll(".Home-btn button");
@@ -109,176 +119,86 @@ document.addEventListener('DOMContentLoaded', function() {
             location.reload();
         });
     });
-});
 
-// HTML section display functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = {
-        html: document.getElementById('html'),
-        css: document.getElementById('css'),
-        javascript: document.getElementById('javascript'),
-        react: document.getElementById('react'),
-        node: document.getElementById('node'),
-        python: document.getElementById('python'),
-        java: document.getElementById('java'),
-        sql: document.getElementById('sql')
+    // HTML section display functionality
+    const sectionLinks = {
+        'show-html': 'html',
+        'show-css': 'css',
+        'show-javascript': 'javascript',
+        'show-react': 'react',
+        'show-node': 'node',
+        'show-python': 'python',
+        'show-java': 'java',
+        'show-sql': 'sql',
     };
 
+    Object.keys(sectionLinks).forEach(id => {
+        document.getElementById(id).addEventListener('click', function(e) {
+            e.preventDefault();
+            showSection(sectionLinks[id]);
+        });
+    });
+
     function showSection(sectionName) {
-        // Hide all sections
         Object.keys(sections).forEach(key => {
             sections[key].style.display = 'none';
             sessionStorage.setItem(`${key}SectionVisible`, 'false');
         });
-        
-        // Show the selected section
         sections[sectionName].style.display = 'flex';
         sessionStorage.setItem(`${sectionName}SectionVisible`, 'true');
     }
 
-    // Event listeners for dropdown links
-    document.getElementById('show-html').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('html');
-    });
+    // Dropdown functionality
+    const projectsDropdown = document.getElementById('myProjects');
+    const techSkillsDropdown = document.getElementById('techSkills');
 
-    document.getElementById('show-css').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('css');
-    });
+    function toggleDropdown(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        const dropdownContent = event.target.nextElementSibling;
 
-    document.getElementById('show-javascript').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('javascript');
-    });
+        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+            if (dropdown !== dropdownContent) {
+                dropdown.classList.remove('show');
+            }
+        });
 
-    document.getElementById('show-react').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('react');
-    });
-
-    document.getElementById('show-node').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('node');
-    });
-
-    document.getElementById('show-python').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('python');
-    });
-
-    document.getElementById('show-java').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('java');
-    });
-
-    document.getElementById('show-sql').addEventListener('click', function(e) {
-        e.preventDefault();
-        showSection('sql');
-    });
-
-    // Close functionality for each section
-    function hideHtmlSection() {
-        sections.html.style.display = 'none';
-        sessionStorage.setItem('htmlSectionVisible', 'false');
+        dropdownContent.classList.toggle('show');
     }
 
-    function hideCssSection() {
-        sections.css.style.display = 'none';
-        sessionStorage.setItem('cssSectionVisible', 'false');
-    }
+    projectsDropdown.addEventListener('click', function(event) {
+        toggleDropdown(event);
+        event.stopPropagation();
+    });
 
-    function hideJavascriptSection() {
-        sections.javascript.style.display = 'none';
-        sessionStorage.setItem('javascriptSectionVisible', 'false');
-    }
+    techSkillsDropdown.addEventListener('click', function(event) {
+        toggleDropdown(event);
+        event.stopPropagation();
+    });
 
-    function hideReactSection() {
-        sections.react.style.display = 'none';
-        sessionStorage.setItem('reactSectionVisible', 'false');
-    }
-
-    function hideNodeSection() {
-        sections.node.style.display = 'none';
-        sessionStorage.setItem('nodeSectionVisible', 'false');
-    }
-
-    function hidePythonSection() {
-        sections.python.style.display = 'none';
-        sessionStorage.setItem('pythonSectionVisible', 'false');
-    }
-
-    function hideJavaSection() {
-        sections.java.style.display = 'none';
-        sessionStorage.setItem('javaSectionVisible', 'false');
-    }
-
-    function hideSqlSection() {
-        sections.sql.style.display = 'none';
-        sessionStorage.setItem('sqlSectionVisible', 'false');
-    }
-
-    // Attach close button functionality for each section
-    document.getElementById('closeHtml').addEventListener('click', hideHtmlSection);
-    document.getElementById('closeCss').addEventListener('click', hideCssSection);
-    document.getElementById('closeJavascript').addEventListener('click', hideJavascriptSection);
-    document.getElementById('closereact').addEventListener('click', hideReactSection);
-    document.getElementById('closeNode').addEventListener('click', hideNodeSection);
-    document.getElementById('closePython').addEventListener('click', hidePythonSection);
-    document.getElementById('closeJava').addEventListener('click', hideJavaSection);
-    document.getElementById('closeSql').addEventListener('click', hideSqlSection);
-});
-
-
-// Active link functionality for navbar
-const navLinks = document.querySelectorAll('.navbar a');
-
-function setActiveLink() {
-    navLinks.forEach(link => link.classList.remove('active'));
-    this.classList.add('active');
-}
-
-navLinks.forEach(link => link.addEventListener('click', setActiveLink));
-
-// Select dropdown buttons
-const projectsDropdown = document.getElementById('myProjects');
-const techSkillsDropdown = document.getElementById('techSkills');
-
-// Function to toggle the dropdown visibility
-function toggleDropdown(event) {
-    event.preventDefault(); // Prevent default anchor behavior to stop navigation
-    event.stopPropagation(); // Prevent other event handlers from executing
-
-    const dropdownContent = event.target.nextElementSibling;
-
-    // Close other dropdowns if open
-    document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-        if (dropdown !== dropdownContent) {
-            dropdown.classList.remove('show');
+    window.addEventListener('click', function(event) {
+        if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
+            document.querySelectorAll('.dropdown-content').forEach(dropdown => {
+                dropdown.classList.remove('show');
+            });
         }
     });
 
-    // Toggle the clicked dropdown's visibility
-    dropdownContent.classList.toggle('show');
+    // Active link functionality for navbar
+    const navLinks = document.querySelectorAll('.navbar a');
+
+    function setActiveLink() {
+        navLinks.forEach(link => link.classList.remove('active'));
+        this.classList.add('active');
+    }
+
+    navLinks.forEach(link => link.addEventListener('click', setActiveLink));
+});
+
+const currentSection = sessionStorage.getItem('currentSection');
+if (currentSection) {
+    navigateToSection(currentSection);
+} else {
+    navigateToSection("home"); // Default to Home section
 }
 
-// Add click event listeners to dropdown buttons
-projectsDropdown.addEventListener('click', function(event) {
-    toggleDropdown(event); // Call the toggle function
-    event.stopPropagation(); // Prevent the navbar from closing
-});
-
-techSkillsDropdown.addEventListener('click', function(event) {
-    toggleDropdown(event); // Call the toggle function
-    event.stopPropagation(); // Prevent the navbar from closing
-});
-
-// Close the dropdown if the user clicks outside of it
-window.addEventListener('click', function(event) {
-    // Check if the clicked target is not a dropdown button or part of its content
-    if (!event.target.matches('.dropbtn') && !event.target.closest('.dropdown-content')) {
-        document.querySelectorAll('.dropdown-content').forEach(dropdown => {
-            dropdown.classList.remove('show');
-        });
-    }
-});

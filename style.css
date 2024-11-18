@@ -17,8 +17,15 @@
     font-family: "Popping", sans-serif;
 }
 
+section {
+    display: none; /* Hide all sections by default */
+}
+
+
+
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -35,7 +42,7 @@ header {
     width: 100%;
     padding: 3rem 9%;
     background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
     display: flex;
     z-index: 999;
     
@@ -126,18 +133,22 @@ section {
     min-height: 100vh;
     padding: 1rem 9% 10rem;
     align-items: center;
-    min-height: auto;
+    /* min-height: auto; */
     overflow: hidden;
 }
 
 .Home {
-    display: flex;
+    display: block;
+    visibility: visible;
+    opacity: 1;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 0.5rem;
     /* margin-top: 10px; */
     height: 800px;
+    width: 100%;
+    z-index: 999;
 }
 
 .home-content {
@@ -1065,7 +1076,7 @@ section {
         height: 900rem;
         padding: 1rem 2rem;
         background: rgba(0, 0, 0, 0.6);
-        backdrop-filter: blur(10px);
+        /* backdrop-filter: blur(10px); */
         flex-direction: column;
         text-align: center;
         display: none;
@@ -1084,7 +1095,7 @@ section {
     }
     section {
         padding: 10rem 3% 2rem;
-        min-height: auto;
+        /* min-height: auto; */
     }
     .navbar a:hover {
         color: #2196f3;
