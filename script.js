@@ -34,20 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Navigation between sections
+    // Navigation between sections
     function navigateToSection(sectionId) {
         hideAllSections(); // Hide all sections first
         const section = document.getElementById(sectionId);
         if (section) {
             section.style.display = "block"; // Show the selected section
+            section.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to section
         }
         if (footer) footer.style.display = "none"; // Hide footer unless specified
         sessionStorage.setItem('currentSection', sectionId); // Save state
     }
-    
 
-    document.getElementById("myServices").addEventListener("click", function(event) {
+    document.getElementById("services").addEventListener("click", function(event) {
         event.preventDefault();
-        navigateToSection("my-services");
+        navigateToSection("services");
     });
 
     document.getElementById("aboutMe").addEventListener("click", function(event) {
